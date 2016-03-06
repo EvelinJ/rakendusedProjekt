@@ -1,0 +1,72 @@
+
+.menyyriba {
+    padding: 10px;
+	padding-left: 0px
+}
+
+.menyy {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menyy li {
+    width: 9em;
+    padding: 5px;
+    float: left;
+	background: #EEEEEE;
+}
+
+.menyy .valitud {
+    background-color: blue;
+}
+
+.menyy a {
+    color: blue;
+    font-family: Arial, Sans-Serif;
+    text-decoration: none;
+}
+
+.menyy a:hover {
+    text-decoration: underline;
+}
+
+.menyy .valitud a {
+    color: white;
+}
+
+.clear {
+    clear: both;
+}
+
+.tabel {
+    font-family: Arial, Sans-Serif;
+    border-spacing: 0px;
+}
+
+.tabel caption {
+    font-weight: bold;
+    font-size: 110%;
+}
+
+.tabel td, .tabel th {
+    border-top: 1px solid #AAAAAA;
+    padding: 5px;
+}
+
+input[type="text"], input[type="password"] {
+    font-family: Arial, Sans-Serif; //kuna on sama font ja size, siis väljad on ühe pikkused, kui seda ei määraks, siis oleks erineva pikkusega
+    padding: 5px 10px;
+    font-size: 13px;
+    border: 1px solid #AAAAAA;
+	border-radius: 3px;
+    width: 15em;
+}
+
+input[type="text"] {
+    
+}
+
+input[type="password"] {
+    
+}

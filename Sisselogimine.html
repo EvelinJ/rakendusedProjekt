@@ -5,13 +5,25 @@
     <head>
 	    <meta charset="utf-8" />
 	    <title>Sisselogimise vorm</title>
+	    <link rel="stylesheet" type="text/css" href="vorm.css">
     </head>
 	
     <body>
 	    
+		<h1>Broneerimine</h1>
+		
+		<div class="menyyriba">
+		    <ul class="menyy">
+		        <li class="valitud"><a href="Sisselogimine.html">Logi sisse</a></li>
+		        <li><a href="Registreerimine.html">Registreeri kasutaja</a></li>
+                <li><a href="http://www.google.ee/">Google</a></li>
+		    </ul>
+            <div class="clear"></div>
+        </div>
+		
 		<form method="post" action="vorm.php">
 		
-		    <table border="1">
+		    <table class="tabel">
 		        <caption>Sisselogimise vorm</caption>
 			    
 			    <tr>
@@ -19,7 +31,7 @@
 				        <label for="username-id">Kasutajanimi:</label>
 				    </th>
 				    <td>
-				        <input type="text" name="username" id="username-id" placeholder="Kasutajanimi">
+				        <input type="text" name="username" id="username-id" placeholder="Sisesta siia kasutajanimi">
 				    </td>
 			    </tr>
 			    
@@ -28,7 +40,7 @@
 				        <label for="password-id">Parool:</label>
 				    </th>
 				    <td>
-				        <input type="password" name="password" id="password-id" placeholder="Parool">
+				        <input type="password" name="password" id="password-id" placeholder="Sisesta siia parool">
 				    </td>
 			    </tr>
 			    

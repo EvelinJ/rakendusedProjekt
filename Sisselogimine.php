@@ -12,13 +12,7 @@
 	    
 		<h1>Broneerimine</h1>
 		
-		<div class="menyyriba">
-		    <ul class="menyy">
-		        <li class="valitud"><a href="Sisselogimine.html">Logi sisse</a></li>
-		        <li><a href="Registreerimine.html">Registreeri kasutaja</a></li>
-                <li><a href="http://www.google.ee/">Google</a></li>
-		    </ul>
-        </div>
+        <?php include("menyy.php"); ?>
 		
 		<form method="post" action="vorm.php">
 		

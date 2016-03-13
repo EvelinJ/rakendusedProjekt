@@ -4,61 +4,58 @@
 
     <head>
 	    <meta charset="utf-8" />
-	    <title>Sisselogimise vorm</title>
+	    <title>Registreerimise vorm</title>
 	    <link rel="stylesheet" type="text/css" href="vorm.css">
     </head>
 	
     <body>
 	    
-		<h1>Broneerimine</h1>
+        <h1>Broneerimine</h1>
 		
-		<div class="menyyriba">
-		    <ul class="menyy">
-		        <li class="valitud"><a href="Sisselogimine.html">Logi sisse</a></li>
-		        <li><a href="Registreerimine.html">Registreeri kasutaja</a></li>
-                <li><a href="http://www.google.ee/">Google</a></li>
-		    </ul>
-        </div>
-		
+        <?php include("menyy.php"); ?>
+	    
 		<form method="post" action="vorm.php">
 		
+		    <input type="hidden" name="aeg" value="2016-02-24">
+		
 		    <table class="tabel">
-		        <caption>Sisselogimise vorm</caption>
-			    
+		        <caption>Registreerimise vorm</caption>
+			
 			    <tr>
 			        <th>
-				        <label for="username-id">Kasutajanimi:</label>
+				        Soovitud kasutajanimi:
 				    </th>
 				    <td>
-				        <input type="text" name="username" id="username-id" placeholder="Sisesta siia kasutajanimi">
+				        <input type="text" name="username" placeholder="Sisesta kasutajanimi">
 				    </td>
 			    </tr>
 			    
 			    <tr>
 			        <th>
-				        <label for="password-id">Parool:</label>
+				        Parool:
 				    </th>
 				    <td>
-				        <input type="password" name="password" id="password-id" placeholder="Sisesta siia parool">
+				        <input type="password" name="password" placeholder="Sisesta parool">
+				    </td>
+			    </tr>
+			    
+			    <tr>
+			        <th>
+				        Korda parooli:
+				    </th>
+				    <td>
+				        <input type="password" name="password2" placeholder="Korda oma parooli">
 				    </td>
 			    </tr>
 			    
 			    <tr>
 			        <td colspan="2">
-				    <label>
-				        <input type="checkbox" name="remember_me" value="test"> Pea mind meeles
-				    </label>
-				    </td>
-			    </tr>
-			    
-			    <tr>
-			        <td colspan="2">
-				        <button type="submit">Logi sisse</button>
+				        <button type="submit">Registreeri</button>
 				    </td>
 			    </tr>
 			    
 		    </table>
-		    
+		
 		</form>
 		
 		<div class="autor">
@@ -75,7 +72,6 @@
         alt="Valid XHTML 1.0 Strict" height="31" width="88">
         </a>
         </p>
-		
     </body>
 	
 </html>

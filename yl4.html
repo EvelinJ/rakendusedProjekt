@@ -77,6 +77,16 @@
 			top: 45%;
 		}
 	</style>
+	
+	<script>
+	    window.onload = function() {
+		    var marklaud = document.getElementById('laud'); // lehe laadimine lõpetatud. Siia funktsiooni sisse kirjutatakse elementide mõjutamise käsud
+			marklaud.onclick = function() {
+			    marklaud.style.left = Math.random()*1000 + "px";
+				marklaud.style.top = Math.random()*500 + "px";
+			}
+		}
+	</script>
 </head>
 <body>
 

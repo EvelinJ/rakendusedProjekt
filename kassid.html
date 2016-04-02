@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8" />
+	    <title>Kassid</title>
+	    <style type="text/css">
+
+            .kass {
+		        border: 3px solid grey;
+				border-radius: 3px;
+				width: 300px;
+				float: left;
+				padding: 10px;
+				Margin: 10px;
+		    }
+			.nimi{
+                font-weight: bold;
+			}
+		
+	    </style>
+    </head>
+    <body>
+	    <p class="kass">
+		    <span class="nimi"><?php echo $kass['nimi'];?></span> on <?php echo $kass['varvus'];?>, <?php echo $kass['vanus'];?> aastane kass, kellele meeldib <?php echo $kass['meeldib'];?>!
+	    </p>
+    </body>
+</html>
+
+

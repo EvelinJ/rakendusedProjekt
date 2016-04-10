@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Rakendus</title>
+		
+        <style>
+            #lisa-vorm-vaade {
+                display: none;
+                border: 1px solid red;
+                padding: 10px;
+            }
+            .paremale{
+                float: right;
+            }
+        </style>
+		
+        
+    </head>
+	
+    <body>
+        <h1>Ladu</h1>
+		
+        <p><button type="button" id="kuva-lisa-vorm">Lisa kirje</button></p>
+
+        <div id="lisa-vorm-vaade">
+            <div class="paremale">
+                <button type="button" id="peida-lisa-vorm">Peida</button>
+            </div>
+            <h2>Lisa kirje</h2>
+			
+            <form id="lisa-vorm">
+                <table>
+                    <tr>
+                        <td>Nimetus</td>
+                        <td>
+                            <input type="text" id="nimetus" name="nimetus">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kogus</td>
+                        <td>
+                            <input type="number" id="kogus" name="kogus">
+                        </td>
+                    </tr>
+                </table>
+                <button type="submit" id="lisa-nupp">Lisa kirje</button>
+            </form>
+        </div>
+		
+        <table id="kirjed" border="1">
+            <thead> <!-- tabeli päis -->
+                <tr> <!-- üks rida, kaks veergu -->
+                    <th>Nimetus</th>
+                    <th>Kogus</th>
+                    <th>Tegevused</th>
+                </tr>
+            </thead>
+            <tbody> <!-- tabeli sisu, mille lisame js-iga -->
+            </tbody>
+        </table>
+
+        <script src="Rakendus8.js"></script>
+    </body>
+
+</html>

@@ -1,7 +1,8 @@
 <?php
 
 function controller_add ($nimetus, $kogus) {
-    global $model_data;
+    //kutsub välja andmebaasi
+	global $model_data;
 	
 	$kogus = intval($kogus);
 	
@@ -24,7 +25,9 @@ function controller_delete ($index) {
 	
 	$index = intval($index);
 	
+	//teeme uue massiivi, millest saab model_data koopia, aga me ei kopeeri sinna kustutatava indeksiga rida
     $uus_massiiv = array();
+	//käime massiivi läbi ja kopeerime uude massiivi kõik read, väljaarvatud selle indeksiga, mida kustutatakse
     foreach ($model_data as $key => $val) {
         if ($key != $index) {
             $uus_massiiv[] = $val;
@@ -32,7 +35,7 @@ function controller_delete ($index) {
 	}
 	
     $model_data = $uus_massiiv;
-    
+    //salvestame mudeli
     return model_save();
 }
 

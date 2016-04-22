@@ -15,7 +15,7 @@
         $joone_laius=$_POST['laius'];
     }
 	
-	$joone_style =" solid ";
+	$joone_style ="solid";
     if (isset($_POST['stiil']) ) {
         $joone_style = htmlspecialchars($_POST['stiil']);
 	}
@@ -35,7 +35,7 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>8_yl1</title>
+        <title>10_yl1</title>
 		
         <style type="text/css">
             #kuva-tekst {
@@ -57,24 +57,32 @@
 		?>
 		
 		<!-- prindib sisestatud teksti -->
-		<div id="kuva-tekst"> <?php if (isset($_POST['tekst'])) echo htmlspecialchars($_POST['tekst']); ?></div>
+		<div id="kuva-tekst"> 
+		    <?php 
+			    if (isset($_POST['tekst'])) {
+					$text = htmlspecialchars($_POST['tekst']);
+				    echo $text;
+                    //setcookie("tekst", $text);
+				}
+			?>
+		</div>
 		
-	    <form id="teksti-vormindus" method="post" action="8_yl1.php">
+	    <form id="teksti-vormindus" method="post" action="10_yl1.php">
 	        <table>
 		        <tr>
 			        <td>
-                        <textarea name="tekst" size="50" placeholder="Sisesta tekst"></textarea>
+                        <textarea name="tekst" size="50" placeholder="Sisesta tekst"><?php if (isset($text)) echo $text; ?></textarea>
 			        </td>
 			    </tr>
 			    <tr>
 			        <td>
-		                <input type="color" id="taustavarvus" name="taustavarvus">
+		                <input type="color" id="taustavarvus" name="taustavarvus" value="<?php echo $teksti_taustavarvus; ?>">
 						<label for="taustavarvus">Taustavärvus</label>
 			        </td>
 			    </tr>
 			    <tr>
 			        <td>
-		                <input type="color" name="varvus">
+		                <input type="color" name="varvus" value="<?php echo $teksti_varvus; ?>">
 						<label for="varvus">Tekstivärvus</label>
 			        </td>
 			    </tr>
@@ -84,7 +92,7 @@
 			        <table>
 			            <tr>
 			                <td>
-		                        <input type="number" name="laius" min="0" max="20" step="1">
+		                        <input type="number" name="laius" min="0" max="20" step="1" value="<?php echo $joone_laius; ?>">
 								<label>Piirjoone laius (0-20px)</label>
 			                </td>
 			            </tr>
@@ -99,13 +107,13 @@
 			            </tr>
 			            <tr>
 			                <td>
-		                        <input type="color" name="joonevarvus">
+		                        <input type="color" name="joonevarvus" value="<?php echo $piirjoonevarvus; ?>">
 								<label for="joonevarvus">Piirjoone värvus</label>
 			                </td>
 			            </tr>
 					    <tr>
 			                <td>
-		                        <input type="number" name="raadius" min="0" max="100" step="1">
+		                        <input type="number" name="raadius" min="0" max="100" step="1" value="<?php echo $joone_raadius; ?>">
 								<label>Piirjoone nurga raadius (0-100px)</label>
 			                </td>
 			            </tr>

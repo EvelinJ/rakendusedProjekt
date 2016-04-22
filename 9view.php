@@ -29,7 +29,7 @@
             </div>
             <h2>Lisa kirje</h2>
 			
-            <form id="lisa-vorm" method="post" action="<?= $_SERVER['PHP_SELF'];?>"> <!-- php jaoks on vajalik method ja action -->
+            <form id="lisa-vorm" method="post" action="<?= $_SERVER['PHP_SELF'];?>"> <!-- php jaoks on vajalik method ja action viitab sellele failile, mille URLis avame 9Rakendus.php-->
                 
 				<input type="hidden" name="action" value="add">
 				

@@ -3,10 +3,6 @@
 //algatame sessiooni
 session_start();
 
-/*if (!isset($_SESSION['voted_for'])) {
-	$_SESSION['voted_for'] = array();
-}*/
-
 require_once("10_yl2head.html");
 
 $pildid = array(

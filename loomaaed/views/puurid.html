@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="utf-8" />
+	    <title>Loomaaed</title>
+	    <style type="text/css">
+
+            .puur {
+		        border: 3px solid grey;
+				border-radius: 3px;
+				width: 300px;
+				float: left;
+				padding: 10px;
+				Margin: 10px;
+		    }
+		
+	    </style>
+    </head>
+    <body>
+		<?php foreach($puurid as $puuri_id=>$puur):?>
+		    <div class="puur">
+			
+			    Puur nr: <?php echo $puuri_id;?> <br/>
+				Puuris asuvad järgmised loomad: <br/>
+				
+		        <?php foreach($puur as $looma_id=>$loom):?>
+			        <img src="<?php echo $loom['Liik'];?>" alt="<?php echo $loom['Nimi'];?>"/> <br/>
+					<?php echo $loom['Nimi'];?> <br/>
+			    <?php endforeach; ?>
+				
+			</div>
+		<?php endforeach; ?>
+    </body>
+</html>
+

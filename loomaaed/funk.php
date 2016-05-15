@@ -53,6 +53,11 @@ var_dump(kuva_puurid());
 function lisa(){
 	// siia on vaja funktsionaalsust (13. nädalal)
 	global $connection;
+	if( empty($_SESSION['notices']) ) {
+			header('Location: views/login.html');
+		} else {
+		return $_SESSION['notices'];
+		}
 	include_once('views/loomavorm.html');
 	
 }

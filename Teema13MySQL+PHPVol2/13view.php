@@ -19,6 +19,15 @@
     </head>
 	
     <body>
+	    
+		<div style="float: right">
+		    <form method="post" action="<?= $_SERVER['PHP_SELF']; ?>">
+			    <input type="hidden" name="action" value="logout">
+				<input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
+				<button type="submit">Logi välja</button>
+			</form>
+		</div>
+		
         <h1>Ladu</h1>
 		
         <p><button type="button" id="kuva-lisa-vorm">Ava lisamise vorm</button></p>
@@ -32,6 +41,7 @@
             <form id="lisa-vorm" method="post" action="<?= $_SERVER['PHP_SELF'];?>"> <!-- php jaoks on vajalik method ja action viitab sellele failile, mille URLis avame 9Rakendus.php-->
                 
 				<input type="hidden" name="action" value="add">
+				<input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
 				
 				<table>
                     <tr>
@@ -77,6 +87,7 @@
 					
                             <form method="post" action="<?= $_SERVER['PHP_SELF'];?>">
 							    <input type="hidden" name="action" value="delete">
+								<input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token']; ?>">
                                 <input type="hidden" name="id" value="<?= $rida['Id']; ?>">
                                 <button type="submit">Kustuta rida</button>
                             </form>

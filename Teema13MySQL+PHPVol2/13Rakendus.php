@@ -4,6 +4,10 @@
 //algatame sessiooni
 session_start();
 
+if ( empty( $_SESSION['csrf_token'] ) ) {
+	$_SESSION['csrf_token'] = bin2hex( openssl_random_pseudo_bytes(20) );
+}
+
 //tagame, et andmed oleks saadval ja neid on võimalik salvestada
 require('13model.php');
 
@@ -14,27 +18,34 @@ require('13controller.php');
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     //tekitame muutuja, mida muudame, juhul kui tegevused saavad läbi ja result on ikka false, siis tekkis viga, kui on true, siis tegime kas toimingu add või delete
 	$result = false;
-    switch ($_POST['action']) {
-        case 'add': 
-		    $nimetus = $_POST['nimetus'];
-			$kogus = intval($_POST['kogus']);
-		    $result = controller_add($nimetus, $kogus);
-		    break;
-        case 'delete': 
-		    $id = intval($_POST['id']);
-		    $result = controller_delete($id);
-			break;
-		case 'register':
-		    $kasutajanimi = $_POST['kasutajanimi'];
-			$parool = $_POST['parool'];
-			$result = controller_register($kasutajanimi, $parool);
-			break;
-		case 'login':
-		    $kasutajanimi = $_POST['kasutajanimi'];
-			$parool = $_POST['parool'];
-			$result = controller_login($kasutajanimi, $parool);
-			break;
-	}
+	
+	if ( !empty( $_POST['csrf_token'] ) && $_POST['csrf_token'] == $_SESSION['csrf_token'] ) {
+	
+        switch ($_POST['action']) {
+            case 'add': 
+		        $nimetus = $_POST['nimetus'];
+			    $kogus = intval($_POST['kogus']);
+		        $result = controller_add($nimetus, $kogus);
+		        break;
+            case 'delete': 
+		        $id = intval($_POST['id']);
+		        $result = controller_delete($id);
+			    break;
+		    case 'register':
+		        $kasutajanimi = $_POST['kasutajanimi'];
+			    $parool = $_POST['parool'];
+			    $result = controller_register($kasutajanimi, $parool);
+			    break;
+		    case 'login':
+		        $kasutajanimi = $_POST['kasutajanimi'];
+			    $parool = $_POST['parool'];
+			    $result = controller_login($kasutajanimi, $parool);
+			    break;
+		    case 'logout':
+		        $result = controller_logout();
+			    break;
+	    }
+    }
 	
 	//kui result muutus true'ks suuname kasutaja ümber iseenda pihta. Juhul, kui result on false ehk ei toimunud ühtegi toimingut, siis annab veateate.
 	if ($result) {

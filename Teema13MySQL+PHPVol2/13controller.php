@@ -1,6 +1,12 @@
 <?php
 
     function controller_add($nimetus, $kogus) {
+		
+		if ( !controller_user() ) {
+			return false;
+		}
+		
+		// kontrollime kas sisendväärtused on oodatud kujul või mitte
 		if ($nimetus == '' || $kogus <= 0) {
 			return false;
 		}
@@ -9,6 +15,15 @@
 	}
 	
 	function controller_delete($id) {
+		
+		if ( !controller_user() ) {
+			return false;
+		}
+		
+		if ($id <= 0) {
+			return false;
+		}
+		
 		return model_delete($id);
 	}
 	
@@ -38,7 +53,23 @@
 			return false;
 		}
 		
+		session_regenerate_id();
+		
 		$_SESSION['user'] = $id;
 		
 		return $id;
+	}
+	
+	function controller_logout () {
+		
+		if ( isset( $_COOKIE[session_name()] ) ) {
+			setcookie( session_name(), '', time() - 42000, '/' );
+		}
+		
+		$_SESSION = array();
+		
+		session_destroy();
+		
+		return true;
+		
 	}

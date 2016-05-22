@@ -99,6 +99,12 @@
 		
 		$stmt = mysqli_prepare($l, $query);
 		
+		//juhul kui SQL lause on vale, siis saame teate
+		if ( mysqli_error($l) ) {
+			echo mysqli_error($l);
+			exit;
+		}
+		
 		mysqli_stmt_bind_param($stmt, 's', $kasutajanimi);
 		
 		mysqli_stmt_execute($stmt);
